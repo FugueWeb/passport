@@ -22,8 +22,8 @@ module.exports = {
        return new HDWalletProvider(mnemonic, infura)
      },
      network_id: 5,
-     gas : 7721975, //default: 6721975
-     gasPrice : 200000000000 //default: 100000000000
+     gas : 6721975, //default: 6721975
+     gasPrice : 100000000000 //default: 100000000000
    }           
   },
   compilers: {

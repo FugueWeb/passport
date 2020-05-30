@@ -72,18 +72,19 @@ contract("FFPaymentSplit", async (accounts) => {
     assert.strictEqual(isCorrectHash, true);
   });
 
-  /* Uncomment to confirm failure, add {from} at the end of function call
+  /** Uncomment to confirm failure, add {from} at the end of function call 
   it("should only allow admins to add a passport or check hash", async () => {
     let pn;
     let [,from] = accounts;
     await passportInstance.addPassport(lastname, salt).then(result =>{
         pn = result.logs[0].args.passportNumber.toString();
     });
-    let isCorrectHash = await passportInstance.checkPassportHash(Number(pn), lastname, salt, {from});
+    let isCorrectHash = await passportInstance.checkPassportHash(Number(pn), lastname, salt);
+    let secureHash = await passportInstance.getSecureHash(Number(pn), {from});
     assert.isBoolean(isCorrectHash);
     assert.strictEqual(isCorrectHash, true);
-  });
-  */
+  }); 
+  **/
 
   function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);

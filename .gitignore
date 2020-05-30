@@ -5,10 +5,10 @@
 # Only exists if Bazel was run
 /bazel-out
 /build
-/misc
 package-lock.json
 app.env
 .env
+notes.md
 
 # dependencies
 /node_modules

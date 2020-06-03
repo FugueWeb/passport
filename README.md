@@ -22,8 +22,10 @@ Simple passport smart contract deployed to the `Goerli` test net. The contract i
 7. You can now interact with the smart contract. Select functions from the drop down menu marked `Select an Item`. Options include:
     - `addAdminRole` - Add an admin at a given address. Only admins may use this function.
     - `addPassport` - Add a passport by providing a `lastName` and a `salt`, which functions as a type of unique password for the hash value stored on the blockchain. Only admins may add passports.
-    - `checkPassportHash` - Returns `true` if the correct `passportNumber`, `lastName`, and `salt` are entered. Note, unless you are an admin this function will return `true` for any value you enter.
-    - `getSecureHash` - Returns the hash of the passport lastname and salt at a given `passportNumber`. Note, this function will return a meaningless value unless you are an admin.
+    - `checkPassportHash` - Returns `true` if the correct `passportNumber`, `lastName`, and `salt` are entered. Note, unless you are an admin this function will return `true` for *any* value entered.
+        - For testing purposes | `passportNumber`: 1 `lastname`: Smith `salt`: secretpassword
+        - These values will return `true` if entered as an admin, and `false` if any modifications to the values are made
+    - `getSecureHash` - Returns the hash of the passport lastname and salt at a given `passportNumber`. Note, this function will also return a meaningless value unless you are an admin.
     - `isPassportExpired` - Returns a [UNIX timestamp](https://www.unixtimestamp.com/) of a given `passportNumber`. This is a read only function and can be called by anyone.  
 
 ## Dev Setup
